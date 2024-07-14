@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './comment-form.component.html',
-  styleUrl: './comment-form.component.scss'
+  styleUrl: './comment-form.component.css'
 })
 export class CommentFormComponent {
 
