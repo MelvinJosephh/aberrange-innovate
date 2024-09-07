@@ -3,18 +3,15 @@
         <div class="col-md-9">
 
             <div class="card shadow-effect">
-                <img src="https://images.pexels.com/photos/15286/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600" alt="" class="card-img-top img-fluid">
+                <img src="{{postData.postImgPath}}" alt="" class="card-img-top img-fluid">
                 <div class="card-body">
-                    <small class="bg-light text-danger text-center">Design</small>
-                    <small class="bg-light text-success text-center ml-2">Featured</small>
-                    <small class="bg-light text-info text-center ml-2">Views- 100,500</small>
-                    <small class="bg-light text-warning text-center ml-2">Last Updated - July 14, 2024</small>
+                    <small class="bg-light text-danger text-center">{{postData.category.category}}</small>
+                    <small class="bg-light text-success text-center ml-2" *ngIf = "postData.isFeatured">Featured</small>
+                    <small class="bg-light text-info text-center ml-2">Views-{{postData.views}}</small>
+                    <small class="bg-light text-warning text-center ml-2">Last Updated - {{postData.createdAt.toMillis() | date}}</small>
 
-                    <h1 class="mt-3 mb-3">Social Media Management 101: Tools and Techniques</h1>
-                    <p>
-                        Managing multiple social media platforms can be daunting, but with the right tools and techniques, it can be a breeze. This post provides an overview of the best social media management tools available and offers practical advice on how to use them to streamline your workflow and enhance your online presence.
-                        Creating promotional content that resonates with your audience is key to any successful marketing strategy. This post explores the art of storytelling in promotional content, offering strategies to create engaging and persuasive messages that drive action. Learn how to craft content that aligns with your brand and captivates your audience.
-                       </p>
+                    <h1 class="mt-3 mb-3">{{postData.title}}</h1>
+                    <p [innerHtml] = "postData.content"></p>
                 </div>
             </div>
             <app-comment-form></app-comment-form>
@@ -22,9 +19,10 @@
         </div>
         
         <div class="col-md-3">
-            <app-post-card></app-post-card>
-            <app-post-card></app-post-card>
-            <app-post-card></app-post-card>
+           
+         <div *ngFor = "let similarPost of similarPostArray">
+            <app-post-card [postData]="similarPost"></app-post-card>
+         </div>
         </div>
     </div>
 </div>

@@ -1,47 +1,30 @@
 <section class="featured-section">
-<div class="container-fluid">
+  <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 text-center mt-5">
-            <h2 class="text-white"> Featured Posts</h2>
-            <p class="text-white">
-                Unlock the secrets to building a strong social media presence with our comprehensive guide. This post covers everything from crafting compelling content to leveraging analytics for growth. Whether you're a beginner or a seasoned marketer, you'll find valuable insights to elevate your social media game.
-            </p>
-        </div>
+      <div class="col-md-12 text-center mt-5">
+        <h2 class="text-white">Featured Posts</h2>
+        <p class="text-white">
+          Unlock the secrets to building a strong social media presence with our
+          comprehensive guide.
+        </p>
+      </div>
     </div>
     <div class="row">
-        <div class="col-lg-3">
-            <app-post-card></app-post-card>
-        </div>
-        <div class="col-lg-3">
-            <app-post-card></app-post-card>
-        </div>
-        <div class="col-lg-3">
-            <app-post-card></app-post-card>
-        </div>
-        <div class="col-lg-3">
-            <app-post-card></app-post-card>
-        </div>
+      <div class="col-lg-3" *ngFor="let featuredPost of featuredPostsArray">
+        <app-post-card [postData]="featuredPost"></app-post-card>
+      </div>
     </div>
-
-
-</div>
-
+  </div>
 </section>
 <section class="container mt-5">
-    <div class="col-md-12 text-center">
-        <h2>Latest Posts</h2>
-        <p>Capturing Life's Special Moments: Event Photography Essentials</p>
-    </div>
+  <div class="col-md-12 text-center">
+    <h2>Latest Posts</h2>
+    <p>Capturing Life's Special Moments: Event Photography Essentials</p>
+  </div>
 
-    <div class="row">
-        <div class="col-md-4 mt-3">
-            <app-post-card></app-post-card>
-        </div>
-        <div class="col-md-4 mt-3">
-            <app-post-card></app-post-card>
-        </div>
-        <div class="col-md-4 mt-3">
-            <app-post-card></app-post-card>
-        </div>
+  <div class="row">
+    <div class="col-md-4 mt-3" *ngFor="let latestPost of latestPostArray">
+      <app-post-card [postData]="latestPost"></app-post-card>
     </div>
+  </div>
 </section>
