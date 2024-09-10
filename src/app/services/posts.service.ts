@@ -87,7 +87,7 @@ countViews(postId: any){
     views: firebase.default.firestore.FieldValue.increment(1)
   }
 this.afs.doc(`posts/${postId}`).update(viewsCount).then (()=>{
-  console.log('Updated views count:', viewsCount);
+  
 })
 }
 }
